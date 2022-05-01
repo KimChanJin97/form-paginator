@@ -1,0 +1,14 @@
+<h1>한번에 배달시키실 분</h1>
+<br/>
+<a href='{% url 'new'%}'>새 글 작성하기</a><hr>
+{% for blog in blogs %}
+<div>
+    <a href="{%url 'detail' blog.id%}">
+        <p>{{blog.title}}</p>
+        {{blog.sub_title}}
+        <p>{{blog.contents}}</p>
+        <p>{{blog.created_at}}</p>
+    </a>
+</dib>
+<br/>
+{% endfor %}

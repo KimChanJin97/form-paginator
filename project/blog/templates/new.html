@@ -1,0 +1,8 @@
+<h1>새 글 작성하기</h1>
+<form action="{% url 'create'%}" method='POST'>
+    {% csrf_token %}
+        주소: <input type='text' name='title' />
+        브랜드: <input type='text' name='sub_title' />
+        메뉴: <textarea name='contents' id='' cols='30' rows='10'></textarea>
+        <input type='submit' value='작성하기' />
+</form>
