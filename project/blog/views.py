@@ -22,6 +22,7 @@ def create(request): # DB 가져오는 함수
     new_blog.title = request.POST['title'] # POST 형식으로 데이터 받을 땐 redirect 해야 함
     new_blog.sub_title = request.POST['sub_title'] # POST 형식으로 데이터 받을 땐 redirect 해야 함
     new_blog.contents = request.POST['contents']  # POST 형식으로 데이터 받을 땐 redirect 해야 함
+    new_blog.image = request.FILES['image'] ## 글 삭제시 기존 사진 삭제하는 기능 구현했음
     new_blog.save()
     return redirect('detail', new_blog.id)
 
@@ -34,6 +35,8 @@ def update(request, id):
     update_blog.title = request.POST['title'] # POST 형식으로 데이터 받을 땐 redirect 해야 함
     update_blog.sub_title = request.POST['sub_title'] # POST 형식으로 데이터 받을 땐 redirect 해야 함
     update_blog.contents = request.POST['contents'] # POST 형식으로 데이터 받을 땐 redirect 해야 함
+    if request.FILES:
+        update_blog.image = request.FILES['image'] ## 사진 수정시 기존 사진 삭제하는 기능 구현해야 함
     update_blog.save()
     return redirect('detail', update_blog.id)
 
@@ -51,5 +54,3 @@ def add_comment_to_post(request, blog_id):
             comment.post=blog
             comment.save()
             return redirect('detail', blog_id)
-
-

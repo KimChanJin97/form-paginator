@@ -1,0 +1,68 @@
+.headpic {
+    display: flex;
+}
+
+body {
+    font-family: 'Jua', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin: 0 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+}
+
+.title:hover {
+    color:#40E0D0;
+}
+
+.blogContainer {
+    width: 50rem;
+    padding: 1rem 1rem 2rem 1rem;
+    border: 2px solid grey;
+    border-radius: 2rem;
+    transition-duration: transform 0.4s ease;
+}
+
+.blogContainer:hover {
+    box-shadow: 0 17px 20px -18px rgba(0,0,0,0.5);
+    transform: translateY(-0.2rem);
+}
+
+.btn {
+    color: white;
+    background-color: #707070;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.btn:hover {
+    background-color: #40E0D0;
+}
+
+
+
