@@ -63,3 +63,23 @@ a:hover {
 .btn:hover {
     background-color: #40E0D0;
 }
+
+.text_pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination_left {
+    padding-right: 1rem;
+}
+
+.pagination_right {
+    padding-left: 1rem;
+}
+

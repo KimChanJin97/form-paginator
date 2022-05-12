@@ -1,18 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block contents %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinJeong</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=RocknRoll+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css'%}"
-    <title>배달</title>
-</head>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}"
 
 <body> 
     <div class="bodyContainer">
@@ -35,20 +23,55 @@
         <br/>
         {% endfor %}
     </div>
-    
-    {% if blogs.has_previous %}
-    <a href="?page=1">처음으로</a>
-    <a href="?page={{blogs.previous_page_number}}">이전으로</a>
-    {% endif %}
-    </br>
-    <span> {{ blogs.number }} </span>
-    <span> / </span>
-    <span> {{ blogs.paginator.num_pages }} </span>
-    {% if blogs.has_next %}
-    <a href="?page={{blogs.next_page_number}}">다음으로</a>
-    <a href="?page={{blogs.paginator.num_pages}}"마지막으로</a>
-    {% endif%}
-    </br>
+        <div class="text_pagination">
+            <div class="pagination">
+
+                <div class="pagination_left">
+                    {% if blogs.has_previous %}
+                    <button type="button">
+                        <a href="?page=1">처음으로</a>
+                    </button>
+                    <button type="button">
+                        <a href="?page={{blogs.previous_page_number}}">이전으로</a>
+                    </button>
+                    {% endif %}
+                    {% if not blogs.has_previous %}
+                    <button type="button" disabled>
+                        <a>처음으로</a>
+                    </button>
+                    <button type="button" disabled>
+                        <a>이전으로</a>
+                    </button>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <span> {{ blogs.number }} </span>
+                    <span> / </span>
+                    <span> {{ blogs.paginator.num_pages }} </span>
+                </div>
+                
+                <div class="pagination_right">
+                    {% if blogs.has_next %}
+                    <button type="button" disabled>
+                        <a href="?page={{blogs.next_page_number}}" >다음으로</a>
+                    </button>
+                    <button type="button" disabled>
+                        <a href="?page={{blogs.paginator.num_pages}}">마지막으로</a>
+                    </button>
+                    {% endif%}
+                    {% if not blogs.has_next %}
+                    <button type="button" disabled>
+                        <a>다음으로</a>
+                    </button>
+                    <button type="button" disabled>
+                        <a>마지막으로</a>
+                    </button>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
 
     <footer>
     </footer>
